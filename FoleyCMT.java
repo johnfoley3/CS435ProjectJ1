@@ -78,8 +78,15 @@ public class FoleyCMT {
 
 		for (Integer searchNum: line1) {
 
+			// Set the search numbers
 			t1.setSearchNum(searchNum);
 			t2.setSearchNum(searchNum);
+
+			// findNum() returns true if it was found in the list
+			if (t1.findNum() && t2.findNum()) {
+
+				System.out.println("" + searchNum + " is a match.");
+			}
 			
 		}
 

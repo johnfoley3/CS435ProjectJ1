@@ -34,14 +34,24 @@ public class CommonMeetingTimeFinder implements Runnable {
 	}
 
 	/**
+	 *	Searches for the number in a list.
+	 *	@return boolean True if found
+	 */
+	public boolean findNum() {
+
+		for (Integer num: meetingTimes) {
+
+			if (num == searchNum) return true;
+		}
+		return false;
+	}
+
+	/**
 	 *	Implements the actual search through the list
 	 */
 	public void run() {
 
-		for (Integer num: meetingTimes) {
-
-			if (num == searchNum) System.out.println("A match " + searchNum);
-		}
+		System.out.println("A thread has started.");
 	}
 
 }

@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * @author John Foley <jpf7324@truman.edu>
  * @date 11/23/14
@@ -14,9 +16,19 @@ public class CommonMeetingTimeFinder implements Runnable {
 	private int searchNum = 0;
 
 	/**
+	 *	List of meeting times
+	 */
+	private ArrayList<Integer> meetingTimes = new ArrayList<Integer>();
+
+	public CommonMeetingTimeFinder(ArrayList<Integer> meetingTimes) {
+
+		this.meetingTimes = meetingTimes;
+	}
+
+	/**
 	 *	Sets the search number 
 	 */
-	public void setNum(int numToSearchFor) {
+	public void setSearchNum(int numToSearchFor) {
 
 		searchNum = numToSearchFor;
 	}
@@ -26,6 +38,10 @@ public class CommonMeetingTimeFinder implements Runnable {
 	 */
 	public void run() {
 
+		for (Integer num: meetingTimes) {
+
+			if (num == searchNum) System.out.println("A match " + searchNum);
+		}
 	}
 
 }

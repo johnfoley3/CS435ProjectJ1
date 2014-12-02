@@ -65,35 +65,16 @@ public class FoleyCMT {
 			
 		}
 
-		// Create the finder objects, giving them their lists
-		CommonMeetingTimeFinder finder1 = new CommonMeetingTimeFinder(line2);
-		CommonMeetingTimeFinder finder2 = new CommonMeetingTimeFinder(line3);
+		// Trim off the first number. 
+		// It represents how many follow, but we don't need to know that.
+		line1.remove(0);
+		line2.remove(0);
+		line3.remove(0);
 
-		Thread t1 = new Thread(finder1);
-		Thread t2 = new Thread(finder2);
+		for (int searchNum : line1) {
 
-		// Start the threads. This runs the run() statement in the given class
-		t1.start();
-		t2.start();
-
-		for (Integer searchNum: line1) {
-
-			// Set the search numbers
-			t1.setSearchNum(searchNum);
-			t2.setSearchNum(searchNum);
-
-			// findNum() returns true if it was found in the list
-			if (t1.findNum() && t2.findNum()) {
-
-				System.out.println("" + searchNum + " is a match.");
-			}
-			
+			Thread t = new Thread(new CommonMeetingTimeFinder(searchNum, line2, line3));
+			t.start();
 		}
-
-		
-
-
-
-		
 	}
 }

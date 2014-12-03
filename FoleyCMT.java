@@ -62,7 +62,6 @@ public class FoleyCMT {
 				System.out.println("Could not find file " + fileName);
 				System.exit(0);
 			}
-			
 		}
 
 		// Trim off the first number. 
